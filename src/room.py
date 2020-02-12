@@ -2,5 +2,6 @@
 # description attributes.
 
 class Room:
-    def __init__(self, name, description):
-        print('this is my room bitch')
+    def __init__(self, name, stuff):
+        self.name = name
+        self.stuff = stuff
