@@ -1,4 +1,6 @@
 from room import Room
+from player import Hero, Monsterq
+
 
 # Declare all the rooms
 
@@ -49,3 +51,8 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+x = 'a'
+while x != 'q':
+    x = input('Please enter your name')
+    print(x)
+
