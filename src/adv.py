@@ -1,6 +1,5 @@
 from room import Room
-from player import Hero, Monsterq
-
+from player import Hero
 
 # Declare all the rooms
 
@@ -41,8 +40,10 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+player = Hero('Dave', '6ft', 30, 'Mong', 100, room['outside'])
+
 # Write a loop that:
-#
+#n
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
@@ -53,6 +54,12 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 x = 'a'
 while x != 'q':
-    x = input('Please enter your name')
-    print(x)
-
+    if player.room.name == 'Outside Cave Entrance':
+        print(player.room.name, ':', player.room.description, '\n')
+        x = input('Please Enter Direction you wish to go, or q to quit: \n')
+        if x == 'n':
+            player.room = player.room.n_to
+        else:
+            print('not for you sunshine')
+    else:
+        print('fucknut')
