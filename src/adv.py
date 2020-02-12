@@ -60,6 +60,40 @@ while x != 'q':
         if x == 'n':
             player.room = player.room.n_to
         else:
-            print('not for you sunshine')
-    else:
-        print('fucknut')
+            print('You can only enter the cave [n]s')
+    elif player.room.name == 'Foyer':
+        print(player.room.name, ':', player.room.description, '\n')
+        x = input('Please Enter Direction you wish to go, or q to quit: \n')
+        if x == 'n' or 's' or 'e':
+            if x == 'n':
+                player.room = player.room.n_to
+            elif x == 's':
+                player.room = player.room.s_to
+            elif x == 'e':
+                player.room = player.room.e_to
+        else:
+            print('You can only go east[e] north[n] or south[s]')               
+    elif player.room.name == 'Grand Overlook':
+        print(player.room.name, ':', player.room.description, '\n')
+        x = input('Please Enter Direction you wish to go, or q to quit: \n')
+        if x == 's':
+            player.room = player.room.s_to
+        else:
+            print('You can only go south[s]')
+    elif player.room.name == 'Narrow Passage':
+        print(player.room.name, ':', player.room.description, '\n')
+        x = input('Please Enter Direction you wish to go, or q to quit: \n')
+        if x == 'w' or 'n':
+            if x == 'w':
+                player.room = player.room.w_to
+            elif x == 'n':
+                player.room = player.room.n_to    
+        else:
+            print('You can only go West[w] or North[n]')
+    elif player.room.name == 'Treasure Chamber':
+        print(player.room.name, ':', player.room.description, '\n')
+        x = input('Please Enter Direction you wish to go, or q to quit: \n')
+        if x == 's':
+            player.room = player.room.s_to
+        else:
+            print('There is literally one door ffs[s]')    
