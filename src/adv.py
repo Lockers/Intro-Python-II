@@ -1,25 +1,25 @@
 from room import Room
 from player import Hero
+from items import Item
 
 # Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mount beckons", Item('Banana') ),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""", Item('Snake')),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""", Item('Blowtorch')),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""", Item('Cow')),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+chamber! There is a bunch of gold in, have you written the function correctly to pick it up?. The only exit is to the south.""", Item('Gold bar')),
 }
 
 
@@ -40,7 +40,7 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-player = Hero('Dave', '6ft', 30, 'Mong', 100, room['outside'])
+player = Hero('Dave', 30, room['outside'], 'sword')
 
 # Write a loop that:
 #n
@@ -56,9 +56,10 @@ player = Hero('Dave', '6ft', 30, 'Mong', 100, room['outside'])
 x = 'a'
 while x != 'q':
 
+    print(f'Welcome {player.name}')
     room = player.room
     print('\n')
-    print(f'You are currently in {room}\n')
+    print(f'You are currently in {room}, You have a {player.items}, the room contains a {room.items}\n')
     x = input('Please Enter Direction you wish to go, or q to quit: \n')
 
     if x is 'n':
@@ -81,5 +82,7 @@ while x != 'q':
             if x == 'w':
                 player.room = player.room.w_to 
         else:
-            print('Pick a direction you can go in :P') 
+            print('Pick a direction you can go in :P')
+    elif x is 'g':
+        player.getStuff()
    

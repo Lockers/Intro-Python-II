@@ -6,34 +6,19 @@ from room import Room
 from items import Item
 
 class Person:
-    def __init__(self, name, height, age):
+    def __init__(self, name, age):
         self.name = name
-        self.height = height
         self.age = age
 
 
 class Hero(Person):
-    def __init__(self, name, height, age, speciality, health, room):
-        super().__init__(name, height, age)
-        self.speciality = speciality
-        self.health = health
+    def __init__(self, name, age, room, items = []):
+        super().__init__(name, age)
         self.room = room
-        self.items = []
+        self.items = Item(items)
+        
+        def getStuff(self):
+            self.items.append(room.item)
 
         def __str__(self):
-            return '{self.name}'.format(self=self)
-
-        def addItem(self):
-            self.items(append(Item(name)))
-            print('Item Added')
-
-class Monster(Person):
-    def __init__(self, name, height, age, danger, health, armour):
-        super().__init__(name, height, age)
-        self.danger = danger
-        self.health = health
-        self.armour = armour
-
-        # def attack(self):
-        #     damage = random.randint(1, 21) * danger # << To do multiplier based on danger
-        #     return damage
+            return f'{self.name}'
