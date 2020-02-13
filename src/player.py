@@ -5,6 +5,7 @@ import random
 from room import Room
 from items import Item
 
+
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -12,13 +13,13 @@ class Person:
 
 
 class Hero(Person):
-    def __init__(self, name, age, room, items = []):
+    def __init__(self, name, age, room, items=[]):
         super().__init__(name, age)
         self.room = room
         self.items = Item(items)
-        
-        def getStuff(self):
-            self.items.append(room.item)
+
+        def getStuff(item):
+            self.items.append(item)
 
         def __str__(self):
             return f'{self.name}'

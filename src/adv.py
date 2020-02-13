@@ -84,5 +84,7 @@ while x != 'q':
         else:
             print('Pick a direction you can go in :P')
     elif x is 'g':
-        player.getStuff()
-   
+        setattr(player, 'items', room.items)
+    elif x is 'd':
+        setattr(player, 'items', [])
+
