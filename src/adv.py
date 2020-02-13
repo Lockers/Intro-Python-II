@@ -52,48 +52,34 @@ player = Hero('Dave', '6ft', 30, 'Mong', 100, room['outside'])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
 x = 'a'
 while x != 'q':
-    if player.room.name == 'Outside Cave Entrance':
-        print(player.room.name, ':', player.room.description, '\n')
-        x = input('Please Enter Direction you wish to go, or q to quit: \n')
-        if x == 'n':
+
+    room = player.room
+    print('\n')
+    print(f'You are currently in {room}\n')
+    x = input('Please Enter Direction you wish to go, or q to quit: \n')
+
+    if x is 'n':
+        if room.n_to is not None:
             player.room = player.room.n_to
         else:
-            print('You can only enter the cave [n]s')
-    elif player.room.name == 'Foyer':
-        print(player.room.name, ':', player.room.description, '\n')
-        x = input('Please Enter Direction you wish to go, or q to quit: \n')
-        if x == 'n' or 's' or 'e':
-            if x == 'n':
-                player.room = player.room.n_to
-            elif x == 's':
-                player.room = player.room.s_to
-            elif x == 'e':
-                player.room = player.room.e_to
+            print('Pick a direction you can go in :P')
+    elif x is 'e':
+        if room.e_to is not None:
+            player.room = player.room.e_to
         else:
-            print('You can only go east[e] north[n] or south[s]')               
-    elif player.room.name == 'Grand Overlook':
-        print(player.room.name, ':', player.room.description, '\n')
-        x = input('Please Enter Direction you wish to go, or q to quit: \n')
-        if x == 's':
+            print('Pick a direction you can go in :P')               
+    elif x is 's':
+        if room.s_to is not None:
             player.room = player.room.s_to
         else:
-            print('You can only go south[s]')
-    elif player.room.name == 'Narrow Passage':
-        print(player.room.name, ':', player.room.description, '\n')
-        x = input('Please Enter Direction you wish to go, or q to quit: \n')
-        if x == 'w' or 'n':
+            print('Pick a direction you can go in :P')  
+    elif x is 'w':
+        if room.w_to is not None:
             if x == 'w':
-                player.room = player.room.w_to
-            elif x == 'n':
-                player.room = player.room.n_to    
+                player.room = player.room.w_to 
         else:
-            print('You can only go West[w] or North[n]')
-    elif player.room.name == 'Treasure Chamber':
-        print(player.room.name, ':', player.room.description, '\n')
-        x = input('Please Enter Direction you wish to go, or q to quit: \n')
-        if x == 's':
-            player.room = player.room.s_to
-        else:
-            print('There is literally one door ffs[s]')    
+            print('Pick a direction you can go in :P') 
+   
